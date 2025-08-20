@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 217.2 100% 97%; /* Slightly off-white for a softer look */
+    --foreground: 220 10% 20%; /* Dark cool gray for text */
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 220 10% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 20%;
+
+    /* New Primary Color from Logo */
+    --primary: 15 88% 55%; /* hsl(15, 88%, 55%) approx #F2542D */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    /* Adjusted Secondary and Accent to complement new primary */
+    --secondary: 215 20% 65%; /* Muted blue-gray */
+    --secondary-foreground: 220 10% 20%; /* Dark cool gray */
+
+    --muted: 215 25% 90%; /* Lighter muted blue-gray */
+    --muted-foreground: 215 15% 45%; /* Softer gray for muted text */
+
+    --accent: 210 30% 80%; /* Light blue accent */
+    --accent-foreground: 220 10% 20%; /* Dark cool gray */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 20% 85%; /* Softer border */
+    --input: 215 20% 80%; /* Softer input border */
+    --ring: 15 88% 55%; /* Primary color for rings */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 15% 10%; /* Dark cool gray */
+    --foreground: 210 20% 90%; /* Light cool gray for text */
+    --card: 220 15% 15%; /* Slightly lighter dark gray for cards */
+    --card-foreground: 210 20% 90%;
+    --popover: 220 15% 10%;
+    --popover-foreground: 210 20% 90%;
+
+    /* New Primary Color from Logo */
+    --primary: 15 88% 55%; /* hsl(15, 88%, 55%) approx #F2542D */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    /* Adjusted Secondary and Accent for dark mode */
+    --secondary: 215 20% 25%; /* Darker muted blue-gray */
+    --secondary-foreground: 210 20% 90%; /* Light cool gray */
+
+    --muted: 215 20% 20%; /* Darker muted */
+    --muted-foreground: 215 15% 60%; /* Lighter muted text */
+
+    --accent: 210 30% 30%; /* Darker blue accent */
+    --accent-foreground: 210 20% 90%; /* Light cool gray */
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 20% 30%; /* Darker border */
+    --input: 215 20% 30%; /* Darker input border */
+    --ring: 15 88% 55%; /* Primary color for rings */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
