@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { Rss, Edit3 } from "lucide-react"
 
 export default function BlogPage() {

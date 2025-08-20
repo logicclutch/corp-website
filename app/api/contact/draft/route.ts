@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { NextResponse } from "next/server"
 import { ContactDatabase, type ContactDraftData } from "@/lib/database"
 import { getOrCreateSessionId } from "@/lib/session"
