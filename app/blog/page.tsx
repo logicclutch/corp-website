@@ -1,4 +1,3 @@
-export const runtime = "edge";
 
 import { Rss, Edit3 } from "lucide-react"
 

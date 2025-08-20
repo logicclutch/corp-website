@@ -1,4 +1,3 @@
-export const runtime = "edge";
 
 import { Loader2 } from "lucide-react"
 
