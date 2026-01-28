@@ -4,6 +4,7 @@ import { sendEmail } from "@/lib/email"
 import { ContactDatabase, type ContactData } from "@/lib/database"
 import { getSessionId } from "@/lib/session"
 
+export const runtime = 'edge';
 // Validate contact form data
 function validateContactData(data: any): { valid: boolean; errors?: Record<string, string> } {
   const errors: Record<string, string> = {}

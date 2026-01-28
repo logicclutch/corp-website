@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server"
 import { testEmailSending } from "@/lib/email"
 
+export const runtime = 'edge';
 export async function GET() {
   try {
     const result = await testEmailSending()

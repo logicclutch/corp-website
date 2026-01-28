@@ -3,6 +3,7 @@ import { NextResponse } from "next/server"
 import { ContactDatabase, type ContactDraftData } from "@/lib/database"
 import { getOrCreateSessionId } from "@/lib/session"
 
+export const runtime = 'edge';
 // GET: Retrieve draft data for the current session
 export async function GET(request: Request) {
   try {

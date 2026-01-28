@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server"
 import { ContactDatabase } from "@/lib/database"
 
+export const runtime = 'edge';
 export async function GET() {
   try {
     // Check if database is available

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Clock, Users } from "lucide-react"
 import { caseStudies } from "@/lib/data"
 
+export const runtime = 'edge';
 export default function CaseStudiesPage() {
   return (
     <div className="min-h-screen">
