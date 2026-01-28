@@ -1,59 +1,108 @@
-import Image from "next/image"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ExternalLink } from "lucide-react"
-import { products } from "@/lib/data"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, Eye, Settings, BarChart3 } from "lucide-react"
+
+const products = [
+  {
+    title: "LogicEye",
+    description:
+      "Advanced analytics and monitoring platform that provides real-time insights into your business operations and performance metrics.",
+    image: "/images/logiceye-web.png",
+    href: "/products#logiceye",
+    status: "Available",
+    features: ["Real-time Analytics", "Custom Dashboards", "Performance Monitoring", "Automated Reporting"],
+    icon: Eye,
+  },
+  {
+    title: "ITMS (IT Management System)",
+    description:
+      "Comprehensive IT management solution for enterprise operations, asset tracking, and service management.",
+    image: "/images/itms-web.png",
+    href: "/products#itms",
+    status: "Available",
+    features: ["Asset Management", "Service Desk", "Incident Tracking", "Resource Planning"],
+    icon: Settings,
+  },
+]
 
 export default function ProductsOverview() {
   return (
-    <section className="py-16 md:py-24 bg-card/30">
+    <section className="py-20 bg-muted/30">
       <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">AI-Powered SaaS Solutions</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover our suite of intelligent products designed to streamline operations and provide actionable insights
-            for modern businesses.
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Our <span className="gradient-text">Innovative Products</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Discover our suite of proprietary software solutions designed to streamline operations and drive business
+            efficiency across various industries.
           </p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2">
+
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {products.map((product, index) => {
-            const Icon = product.icon
+            const IconComponent = product.icon
             return (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="relative h-48 rounded-lg overflow-hidden mb-4">
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={`${product.title} product interface`}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <Badge variant="secondary" className="bg-sky-100 text-sky-700">
+                      {product.status}
+                    </Badge>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Icon className="h-6 w-6 text-primary" />
+                </div>
+
+                <CardHeader>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center">
+                      <IconComponent className="h-5 w-5 text-sky-600" />
                     </div>
                     <CardTitle className="text-2xl">{product.title}</CardTitle>
                   </div>
+                  <CardDescription className="text-base">{product.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">{product.description}</p>
-                  <Button size="lg" asChild className="w-full">
-                    <Link href={product.link} target="_blank" rel="noopener noreferrer">
-                      Explore {product.title} <ExternalLink className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
+
+                <CardContent className="space-y-6">
+                  <div className="grid grid-cols-2 gap-3">
+                    {product.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center text-sm">
+                        <BarChart3 className="h-4 w-4 text-sky-500 mr-2" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex space-x-3">
+                    <Button asChild className="flex-1 bg-sky-500 hover:bg-sky-600">
+                      <Link href={product.href}>
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline">
+                      <Link href="/contact">Request Demo</Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             )
           })}
         </div>
+
         <div className="text-center mt-12">
-          <Button size="lg" variant="outline" asChild>
+          <Button asChild size="lg" variant="outline">
             <Link href="/products">
-              View All Products <ExternalLink className="ml-2 h-5 w-5" />
+              Explore All Products
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>

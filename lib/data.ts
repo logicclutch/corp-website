@@ -1,27 +1,6 @@
-import {
-  Database,
-  Cloud,
-  Code,
-  Users,
-  Monitor,
-  Settings,
-  Eye,
-  UserPlus,
-  Facebook,
-  Twitter,
-  Linkedin,
-  type LucideIcon,
-} from "lucide-react"
+import { Users, Database, Cloud, Eye, Car, Code } from "lucide-react"
 
-export interface NavItem {
-  label: string
-  href: string
-  description?: string
-  icon?: LucideIcon
-  external?: boolean
-  children?: NavItem[]
-}
-
+// Site Configuration
 export const siteConfig = {
   name: "Logic Clutch",
   description:
@@ -34,7 +13,70 @@ export const siteConfig = {
   email: "info@logicclutch.com",
 }
 
-export const navMenuItems: NavItem[] = [
+// Company Information
+export const companyInfo = {
+  name: "Logic Clutch",
+  tagline: "Transforming Enterprises Through Intelligent Technology Solutions",
+  description:
+    "Logic Clutch is a leading enterprise technology consulting firm specializing in Master Data Management, Salesforce CRM solutions, AI-powered analytics, and custom software development. Our team of senior executives and developers has worked with Fortune 500 companies to deliver transformative digital solutions.",
+  founded: "2018",
+  headquarters: "Jaipur, India",
+  employees: "50-100",
+  industries: [
+    "Technology Consulting",
+    "Data Management",
+    "AI & Machine Learning",
+    "CRM Solutions",
+    "Custom Software Development",
+  ],
+  certifications: [
+    "ISO 27001 Certified",
+    "SOC 2 Type II Compliant",
+    "GDPR Compliant",
+    "Salesforce Partner",
+    "Informatica Partner",
+  ],
+}
+
+// Leadership Team
+export const leadership = [
+  {
+    id: "sneha-sharma",
+    name: "Sneha Sharma",
+    position: "Founder & Director",
+    role: "Founder & Director",
+    bio: "15+ years experienced in consulting and serial entrepreneur. A woman leader who believes in ethical business practices and driving meaningful change through technology.",
+    image: "/images/leader-sneha-sharma.jpeg",
+    alt: "Sneha Sharma, Founder & Director of Logic Clutch",
+    linkedin: "https://www.linkedin.com/in/snehasharma1121/",
+    expertise: ["Strategic Leadership", "Business Development", "Technology Consulting", "Entrepreneurship"],
+  },
+  {
+    id: "anjali-jain",
+    name: "Anjali Jain",
+    position: "Director of Inbound Operations",
+    role: "Director of Inbound Operations",
+    bio: "Electrical Engineer by education who believes in firm teamwork and transparency. Dedicated to operational excellence and building strong collaborative processes.",
+    image: "/images/leader-anjali-jain.jpeg",
+    alt: "Anjali Jain, Director of Inbound Operations at Logic Clutch",
+    linkedin: "https://www.linkedin.com/in/anjalijain1707/",
+    expertise: ["Operations Management", "Team Leadership", "Process Optimization", "Quality Assurance"],
+  },
+  {
+    id: "vikram-jain",
+    name: "Vikram Jain",
+    position: "Director - Program Management Global",
+    role: "Director - Program Management Global",
+    bio: "16+ years experienced in IT industry with global exposure. Holds Executive MBA from IIM, Raipur. Expert in managing complex global programs and driving strategic initiatives.",
+    image: "/images/leader-vikram-jain.png",
+    alt: "Vikram Jain, Director - Program Management Global at Logic Clutch",
+    linkedin: "https://www.linkedin.com/in/jainvikram1512/",
+    expertise: ["Program Management", "Global Operations", "Strategic Planning", "Client Relations"],
+  },
+]
+
+// Navigation Menu Items - Updated Press link to external URL
+export const navMenuItems = [
   {
     label: "Services",
     href: "/services",
@@ -73,24 +115,26 @@ export const navMenuItems: NavItem[] = [
         label: "LogicEye",
         href: "https://www.logicclutch.ai/",
         description: "AI analytics and predictive insights platform",
-        icon: Monitor,
+        icon: Eye,
         external: true,
       },
       {
         label: "ITMS",
         href: "https://products.logicclutch.com/",
         description: "Intelligent Traffic Management System",
-        icon: Settings,
+        icon: Car,
         external: true,
       },
     ],
   },
   { label: "Case Studies", href: "/case-studies" },
   { label: "News", href: "/news" },
+  { label: "Press", href: "https://www.logicclutch.com/press", external: true },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ]
 
+// Services Data
 export const services = [
   {
     icon: Database,
@@ -116,7 +160,7 @@ export const services = [
     heroImage: "/images/on-demand-development-hero.png",
   },
   {
-    icon: UserPlus,
+    icon: Users,
     title: "Resource Augmentation",
     description: "Rapidly scale your capacity with certified developers, architects, QA engineers and PMs.",
     link: "/services/augmentation",
@@ -124,6 +168,7 @@ export const services = [
   },
 ]
 
+// Products Data
 export const products = [
   {
     icon: Eye,
@@ -134,7 +179,7 @@ export const products = [
     external: true,
   },
   {
-    icon: Settings,
+    icon: Car,
     title: "ITMS",
     description: "Intelligent Traffic Management System for smart city infrastructure and traffic optimization.",
     link: "https://products.logicclutch.com/",
@@ -143,6 +188,7 @@ export const products = [
   },
 ]
 
+// Client Logos and Information
 export const clientLogos = [
   {
     name: "TomTom",
@@ -269,19 +315,15 @@ export const caseStudies = [
     client: "Manufacturing",
     industry: "Manufacturing & Industrial Automation",
     challenge:
-      "A leading automotive manufacturing company with multiple production facilities faced critical safety compliance challenges. Workers frequently entered hazardous zones without proper Personal Protective Equipment (PPE), leading to safety violations, potential accidents, and regulatory compliance issues. The company needed real-time monitoring across 15 production lines, 8 warehouses, and 3 assembly plants. Traditional manual safety inspections were inefficient, covering only 20% of work areas daily, and incident reporting was reactive rather than preventive. The company was losing $2.3M annually due to safety-related downtime, insurance claims, and regulatory fines.",
+      "A leading automotive manufacturing company with multiple production facilities faced critical safety compliance challenges. Workers frequently entered hazardous zones without proper Personal Protective Equipment (PPE), leading to safety violations, potential accidents, and regulatory compliance issues.",
     solution:
-      "Logic Clutch developed a comprehensive Computer Vision AI solution integrating advanced PPE detection with intelligent geo-fencing security systems. Our solution deployed 450+ high-resolution cameras across all facilities, powered by custom-trained deep learning models capable of detecting helmets, safety vests, gloves, safety glasses, and steel-toed boots with 98.7% accuracy. The geo-fencing system created virtual boundaries around hazardous areas including chemical storage zones, heavy machinery operations, and high-voltage electrical areas. Real-time alerts were sent to supervisors and workers via mobile apps, digital displays, and audio announcements. The system integrated with existing access control systems, automatically restricting entry to non-compliant personnel. Advanced analytics dashboards provided insights into safety patterns, compliance trends, and risk hotspots across all facilities.",
+      "Logic Clutch developed a comprehensive Computer Vision AI solution integrating advanced PPE detection with intelligent geo-fencing security systems. Our solution deployed 450+ high-resolution cameras across all facilities, powered by custom-trained deep learning models capable of detecting helmets, safety vests, gloves, safety glasses, and steel-toed boots with 98.7% accuracy.",
     results: [
       "99.2% reduction in safety violations within 6 months of deployment",
       "87% decrease in workplace accidents and near-miss incidents",
       "Real-time PPE compliance monitoring across 100% of work areas",
       "65% reduction in safety-related insurance premiums",
       "$4.2M annual savings from prevented accidents and improved compliance",
-      "Automated incident reporting reduced response time from 45 minutes to 2 minutes",
-      "100% regulatory compliance achieved across all facilities",
-      "Employee safety awareness increased by 78% through gamification features",
-      "Integration with 12 existing enterprise systems including ERP and HRM",
       "ROI of 340% achieved within 18 months",
     ],
     image: "/images/case-study-ppe-detection.jpeg",
@@ -296,21 +338,15 @@ export const caseStudies = [
     client: "Optical Manufacturing",
     industry: "Optical & Lens Manufacturing",
     challenge:
-      "A global leader in precision optical lens manufacturing was struggling with a fragmented customer management system that couldn't handle their complex B2B relationships, intricate product configurations, and multi-tier distribution network. Their existing generic CRM solution failed to manage the unique requirements of lens manufacturing including prescription tracking, coating specifications, material sourcing, quality certifications, and regulatory compliance across 45 countries. Sales teams spent 60% of their time on administrative tasks rather than selling. Customer data was scattered across 8 different systems, leading to inconsistent pricing, delayed quotes, and lost opportunities. The company was losing $12M annually due to inefficient processes and missed sales opportunities.",
+      "A global leader in precision optical lens manufacturing was struggling with a fragmented customer management system that couldn't handle their complex B2B relationships, intricate product configurations, and multi-tier distribution network.",
     solution:
-      "Logic Clutch designed and built a completely customized CRM solution tailored specifically for the optical lens manufacturing industry. The system featured advanced product configurators for complex lens specifications, automated pricing engines considering material costs, manufacturing complexity, and market dynamics. Integration with optical design software allowed real-time feasibility analysis and manufacturing cost estimation. The CRM included specialized modules for prescription management, regulatory compliance tracking, quality certification workflows, and multi-currency international sales management. Advanced analytics provided insights into market trends, customer behavior, and product performance. Mobile applications enabled field sales teams to create quotes, track orders, and access technical specifications offline. The system integrated with existing ERP, manufacturing execution systems, and supply chain management platforms.",
+      "Logic Clutch designed and built a completely customized CRM solution tailored specifically for the optical lens manufacturing industry. The system featured advanced product configurators for complex lens specifications, automated pricing engines considering material costs, manufacturing complexity, and market dynamics.",
     results: [
       "300% increase in sales revenue within 24 months",
       "Quote generation time reduced from 3 days to 15 minutes",
       "Customer satisfaction scores improved by 85%",
       "Sales team productivity increased by 220%",
       "Order processing accuracy improved to 99.8%",
-      "Customer retention rate increased from 72% to 94%",
-      "Average deal size increased by 45% through better upselling",
-      "Time-to-market for new products reduced by 60%",
-      "Inventory optimization resulted in 35% reduction in carrying costs",
-      "International sales grew by 180% with multi-currency support",
-      "Compliance reporting time reduced from 40 hours to 2 hours monthly",
       "ROI of 420% achieved within 30 months",
     ],
     image: "/images/case-study-crm-growth.png",
@@ -325,22 +361,16 @@ export const caseStudies = [
     client: "E-commerce",
     industry: "E-commerce & Retail Technology",
     challenge:
-      "A rapidly growing e-commerce company specializing in premium lifestyle products was facing critical scalability issues with their legacy platform. During peak shopping seasons, the website experienced frequent crashes, slow loading times (8+ seconds), and checkout failures resulting in 45% cart abandonment rates. The platform couldn't handle their expanding product catalog of 50,000+ items, complex inventory management across 12 warehouses, or integration with 15+ payment gateways and shipping providers. Mobile experience was poor with only 23% mobile conversion rates. The company needed to launch in 8 new international markets but lacked multi-currency, multi-language, and tax compliance capabilities. Customer service was overwhelmed with order tracking inquiries, and the recommendation engine was generating only 12% of sales.",
+      "A rapidly growing e-commerce company specializing in premium lifestyle products was facing critical scalability issues with their legacy platform. During peak shopping seasons, the website experienced frequent crashes, slow loading times (8+ seconds), and checkout failures resulting in 45% cart abandonment rates.",
     solution:
-      "Logic Clutch assembled a dedicated team of 15 full-stack developers who completely rebuilt the e-commerce platform using modern microservices architecture. The new platform featured advanced caching mechanisms, CDN integration, and auto-scaling capabilities to handle traffic spikes. We implemented AI-powered product recommendations, dynamic pricing engines, and personalized shopping experiences. The mobile-first responsive design included progressive web app (PWA) capabilities for app-like performance. Advanced inventory management with real-time synchronization across all channels, automated reordering, and demand forecasting was integrated. The platform supported multiple currencies, languages, tax systems, and shipping methods for international expansion. Customer service was enhanced with chatbots, automated order tracking, and self-service portals.",
+      "Logic Clutch assembled a dedicated team of 15 full-stack developers who completely rebuilt the e-commerce platform using modern microservices architecture. The new platform featured advanced caching mechanisms, CDN integration, and auto-scaling capabilities to handle traffic spikes.",
     results: [
       "500% increase in annual revenue within 18 months",
       "Page load times improved from 8 seconds to 1.2 seconds",
       "Cart abandonment reduced from 45% to 18%",
       "Mobile conversion rates increased from 23% to 67%",
       "99.9% uptime achieved during peak shopping seasons",
-      "Customer acquisition cost reduced by 40% through better SEO",
-      "Average order value increased by 55% via AI recommendations",
-      "International sales grew to 35% of total revenue",
-      "Customer service inquiries reduced by 60% through automation",
-      "Inventory turnover improved by 75% with demand forecasting",
       "Platform can now handle 10x traffic without performance degradation",
-      "Time-to-market for new features reduced by 80%",
     ],
     image: "/images/case-study-ecommerce-new.png",
     alt: "E-commerce platform transformation infographic showing mobile shopping interface with 500% revenue growth chart and upward trending arrow",
@@ -354,21 +384,15 @@ export const caseStudies = [
     client: "Healthcare",
     industry: "Healthcare & Medical Technology",
     challenge:
-      "A large healthcare network operating 8 hospitals and 25 clinics was struggling with fragmented patient data, reactive care delivery, and increasing readmission rates. Patient information was scattered across multiple Electronic Health Record (EHR) systems, making it difficult for healthcare providers to get a complete view of patient history. The network faced challenges with bed management, staff scheduling, and resource allocation. Readmission rates were 18% above national averages, costing the organization $15M annually in penalties. Physicians spent 65% of their time on documentation rather than patient care. The organization needed predictive analytics to identify high-risk patients, optimize resource utilization, and improve care coordination across the entire network.",
+      "A large healthcare network operating 8 hospitals and 25 clinics was struggling with fragmented patient data, reactive care delivery, and increasing readmission rates. Patient information was scattered across multiple Electronic Health Record (EHR) systems.",
     solution:
-      "Logic Clutch developed a comprehensive AI-powered healthcare analytics platform using our LogicEye technology, specifically customized for healthcare applications. The solution integrated data from 12 different EHR systems, medical devices, lab systems, and imaging platforms to create unified patient profiles. Advanced machine learning algorithms analyzed patient data to predict readmission risks, identify potential complications, and recommend preventive interventions. The platform included real-time dashboards for clinical decision support, automated alerts for critical conditions, and predictive models for bed management and staff scheduling. Natural language processing extracted insights from clinical notes, and computer vision analyzed medical images for early detection of conditions. The system ensured HIPAA compliance with advanced encryption and access controls.",
+      "Logic Clutch developed a comprehensive AI-powered healthcare analytics platform using our LogicEye technology, specifically customized for healthcare applications. The solution integrated data from 12 different EHR systems, medical devices, lab systems, and imaging platforms to create unified patient profiles.",
     results: [
       "40% improvement in patient outcomes through predictive interventions",
       "65% reduction in 30-day readmission rates",
       "Real-time monitoring of 100% of patients across the network",
       "Clinical decision-making time reduced by 50%",
       "Bed utilization efficiency improved by 35%",
-      "Staff scheduling optimization reduced overtime costs by 45%",
-      "Early detection of sepsis improved by 78% with AI alerts",
-      "Documentation time reduced by 40% through automation",
-      "Patient satisfaction scores increased by 32%",
-      "Cost per patient reduced by 28% through optimized care paths",
-      "Medication errors reduced by 85% with AI-powered checks",
       "ROI of 280% achieved within 24 months",
     ],
     image: "/images/case-study-healthcare-ai.png",
@@ -400,6 +424,7 @@ export const complianceLogos = [
   },
 ]
 
+// Updated footer links to use external press URL
 export const footerLinks = {
   services: services.map((s) => ({ label: s.title, href: s.link })),
   products: products.map((p) => ({ label: p.title, href: p.link, external: p.external })),
@@ -407,6 +432,7 @@ export const footerLinks = {
     { label: "About Us", href: "/about" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "News", href: "/news" },
+    { label: "Press", href: "https://www.logicclutch.com/press", external: true },
     { label: "Careers", href: "/careers" },
     { label: "Blog", href: "/blog" },
   ],
@@ -416,38 +442,11 @@ export const footerLinks = {
     { label: "Cookie Policy", href: "/cookie-policy" },
   ],
   social: [
-    { icon: Linkedin, href: "https://linkedin.com/company/logicclutch", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com/logicclutch", label: "Twitter" },
-    { icon: Facebook, href: "https://facebook.com/logicclutch", label: "Facebook" },
+    { icon: "Linkedin", href: "https://linkedin.com/company/logicclutch", label: "LinkedIn" },
+    { icon: "Twitter", href: "https://twitter.com/logicclutch", label: "Twitter" },
+    { icon: "Facebook", href: "https://facebook.com/logicclutch", label: "Facebook" },
   ],
 }
-
-export const leadership = [
-  {
-    name: "Sneha Sharma",
-    role: "Founder & Director",
-    bio: "15+ years experienced in consulting and serial entrepreneur. A woman leader who believes in ethical business practices and driving meaningful change through technology.",
-    image: "/images/leader-sneha-sharma.jpeg",
-    alt: "Sneha Sharma, Founder & Director of Logic Clutch",
-    linkedin: "https://www.linkedin.com/in/snehasharma1121/",
-  },
-  {
-    name: "Anjali Jain",
-    role: "Director of Inbound Operations",
-    bio: "Electrical Engineer by education who believes in firm teamwork and transparency. Dedicated to operational excellence and building strong collaborative processes.",
-    image: "/images/leader-anjali-jain.jpeg",
-    alt: "Anjali Jain, Director of Inbound Operations at Logic Clutch",
-    linkedin: "https://www.linkedin.com/in/anjalijain1707/",
-  },
-  {
-    name: "Vikram Jain",
-    role: "Director - Program Management Global",
-    bio: "16+ years experienced in IT industry with global exposure. Holds Executive MBA from IIM, Raipur. Expert in managing complex global programs and driving strategic initiatives.",
-    image: "/images/leader-vikram-jain.png",
-    alt: "Vikram Jain, Director - Program Management Global at Logic Clutch",
-    linkedin: "https://www.linkedin.com/in/jainvikram1512/",
-  },
-]
 
 export const testimonials = [
   {
@@ -541,3 +540,133 @@ export const newsArticles = [
     image: "/placeholder.svg?height=200&width=400&text=AI+Enterprise+Transformation+Trends",
   },
 ]
+
+// Press Releases (kept for internal pages that might still reference them)
+export const pressReleases = [
+  {
+    id: "series-a-funding",
+    title: "Logic Clutch Secures $15M Series A Funding to Accelerate AI and Data Management Solutions",
+    excerpt:
+      "Investment led by prominent venture capital firm will fuel expansion of LogicEye AI platform and global market reach.",
+    content: `Logic Clutch, a leading enterprise technology consulting firm, today announced the successful completion of its Series A funding round, raising $15 million from a consortium of investors led by TechVenture Capital.`,
+    publishedAt: "2024-01-20",
+    category: "Funding",
+    image: "/images/hero-image-main.png",
+    downloadUrl: "/press/series-a-funding.pdf",
+  },
+  {
+    id: "healthcare-partnership",
+    title: "Logic Clutch Partners with Leading Healthcare Network to Deploy AI-Powered Patient Monitoring",
+    excerpt:
+      "LogicEye platform implementation across 15 facilities expected to improve patient outcomes and operational efficiency.",
+    content: `Logic Clutch today announced a strategic partnership with MedHealth Network, one of the region's largest healthcare providers.`,
+    publishedAt: "2024-01-12",
+    category: "Partnership",
+    image: "/images/case-study-healthcare-ai.png",
+    downloadUrl: "/press/healthcare-partnership.pdf",
+  },
+]
+
+// Media Kit (kept for internal pages)
+export const mediaKit = {
+  companyOverview: {
+    description:
+      "Logic Clutch is a leading enterprise technology consulting firm specializing in AI-powered solutions, Master Data Management, and Salesforce CRM implementations. Founded in 2018, the company has rapidly grown to serve Fortune 500 clients across multiple industries.",
+    keyFacts: [
+      "Founded: 2018",
+      "Headquarters: Jaipur, India",
+      "Employees: 50-100",
+      "Industries Served: 12+",
+      "Fortune 500 Clients: 25+",
+      "Revenue Growth: 300% YoY",
+    ],
+    awards: [
+      "Salesforce Partner Excellence Award 2024",
+      "Microsoft Startup Partner of the Year 2023",
+      "NVIDIA Inception Program Member",
+      "ISO 27001 Certified",
+      "SOC 2 Type II Compliant",
+    ],
+  },
+  logoAssets: [
+    {
+      name: "Primary Logo (PNG)",
+      description: "High-resolution PNG logo for digital use",
+      url: "/images/logic-clutch-logo-new.png",
+      format: "PNG",
+      size: "2000x800px",
+    },
+    {
+      name: "Logo with Text (PNG)",
+      description: "Logo with company name for presentations",
+      url: "/images/logic-clutch-logo.png",
+      format: "PNG",
+      size: "1500x600px",
+    },
+    {
+      name: "Favicon",
+      description: "Website favicon",
+      url: "/favicon.ico",
+      format: "ICO",
+      size: "32x32px",
+    },
+  ],
+  productImages: [
+    {
+      name: "LogicEye Platform",
+      description: "Screenshot of LogicEye AI platform interface",
+      url: "/images/logiceye-web.png",
+      format: "PNG",
+      category: "Product",
+    },
+    {
+      name: "ITMS Dashboard",
+      description: "ITMS traffic management dashboard",
+      url: "/images/itms-web.png",
+      format: "PNG",
+      category: "Product",
+    },
+    {
+      name: "Salesforce Implementation",
+      description: "Custom Salesforce solution screenshot",
+      url: "/images/salesforce-consulting-new.png",
+      format: "PNG",
+      category: "Service",
+    },
+  ],
+  executivePhotos: [
+    {
+      name: "Sneha Sharma - Founder & Director",
+      url: "/images/leader-sneha-sharma.jpeg",
+      format: "JPEG",
+      role: "Founder & Director",
+    },
+    {
+      name: "Anjali Jain - Director of Operations",
+      url: "/images/leader-anjali-jain.jpeg",
+      format: "JPEG",
+      role: "Director of Inbound Operations",
+    },
+    {
+      name: "Vikram Jain - Director Program Management",
+      url: "/images/leader-vikram-jain.png",
+      format: "PNG",
+      role: "Director - Program Management Global",
+    },
+  ],
+  contactInfo: {
+    press: {
+      name: "Media Relations Team",
+      email: "press@logicclutch.com",
+      phone: "+91 99297 90897",
+    },
+    general: {
+      email: "info@logicclutch.com",
+      phone: "+91 99297 90897",
+      address: "91, Shri Ram Enclave, Kallawala, Vatika Road, Jaipur 303905",
+    },
+  },
+}
+
+// Clients (same as clientLogos for backward compatibility)
+export const clients = clientLogos

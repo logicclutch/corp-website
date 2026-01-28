@@ -1,13 +1,14 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Search, Calendar, Clock, User } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Search, Calendar, Clock, User, ArrowRight } from "lucide-react"
 import { newsArticles } from "@/lib/data"
-import Image from "next/image"
 
 const categories = [
   "All",
@@ -34,11 +35,13 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-muted/50 to-background">
+      <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-16 md:py-24">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Logic Clutch Newsroom</h1>
-            <p className="text-lg text-muted-foreground mb-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+              Logic Clutch <span className="text-primary">Newsroom</span>
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Stay updated with the latest news and insights from Logic Clutch, your trusted partner in enterprise
               technology consulting and innovative data-driven solutions.
             </p>
@@ -68,7 +71,6 @@ export default function NewsPage() {
                 variant={selectedCategory === category ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedCategory(category)}
-                className="rounded-full"
               >
                 {category}
               </Button>
@@ -78,43 +80,43 @@ export default function NewsPage() {
       </section>
 
       {/* Articles Grid */}
-      <section className="py-12 md:py-16">
+      <section className="py-16 md:py-24">
         <div className="container">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredArticles.map((article) => (
-              <Card key={article.id} className="group hover:shadow-lg transition-all duration-300">
-                <div className="aspect-video relative overflow-hidden rounded-t-lg">
+              <Card key={article.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="aspect-video relative overflow-hidden">
                   <Image
                     src={article.image || "/placeholder.svg"}
                     alt={article.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover transition-transform hover:scale-105"
                   />
                 </div>
-                <CardHeader className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <Badge variant="secondary" className="text-xs">
-                      {article.category}
-                    </Badge>
-                    <div className="flex items-center text-xs text-muted-foreground">
-                      <Clock className="h-3 w-3 mr-1" />
-                      {article.readTime}
-                    </div>
+                <CardHeader>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="secondary">{article.category}</Badge>
                   </div>
-                  <h3 className="text-xl font-semibold leading-tight group-hover:text-primary transition-colors">
-                    {article.title}
-                  </h3>
+                  <CardTitle className="line-clamp-2 hover:text-primary transition-colors">
+                    <Link href={`/news/${article.id}`}>{article.title}</Link>
+                  </CardTitle>
+                  <CardDescription className="line-clamp-3">{article.excerpt}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed">{article.excerpt}</p>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <div className="flex items-center">
-                      <User className="h-3 w-3 mr-1" />
-                      By {article.author}
+                <CardContent>
+                  <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-1">
+                        <User className="h-4 w-4" />
+                        {article.author}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-4 w-4" />
+                        {article.date}
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <Calendar className="h-3 w-3 mr-1" />
-                      {article.date}
+                    <div className="flex items-center gap-1">
+                      <Clock className="h-4 w-4" />
+                      {article.readTime}
                     </div>
                   </div>
                 </CardContent>
@@ -127,30 +129,24 @@ export default function NewsPage() {
               <p className="text-muted-foreground">No articles found matching your criteria.</p>
             </div>
           )}
-
-          {/* Load More Button */}
-          {filteredArticles.length > 0 && (
-            <div className="text-center mt-12">
-              <Button variant="outline" size="lg">
-                Load More Articles
-              </Button>
-            </div>
-          )}
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-16 bg-muted/50">
+      {/* Newsletter Subscription */}
+      <section className="py-16 md:py-24 bg-muted/50">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Stay in the Loop</h2>
+            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
             <p className="text-muted-foreground mb-8">
-              Subscribe to our newsletter for the latest updates on technology trends, product releases, and industry
-              insights.
+              Subscribe to our newsletter to receive the latest news, insights, and updates from Logic Clutch directly
+              in your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <Input type="email" placeholder="Enter your email" className="flex-1" />
-              <Button>Subscribe</Button>
+              <Button>
+                Subscribe
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
         </div>

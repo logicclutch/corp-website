@@ -1,69 +1,65 @@
-
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { GoogleAnalytics } from "@next/third-parties/google"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import WhatsAppChat from "@/components/whatsapp-chat"
-import { ThemeProvider } from "@/components/theme-provider"
-import { siteConfig } from "@/lib/data"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  keywords: [
-    "Master Data Management",
-    "Salesforce CRM",
-    "Enterprise Technology",
-    "Data Analytics",
-    "Custom Development",
-    "IT Consulting",
-    "Resource Augmentation",
-    "AI Analytics",
-  ],
-  authors: [
-    {
-      name: "Logic Clutch",
-      url: siteConfig.url,
-    },
-  ],
+  title: "Logic Clutch - Enterprise Software Solutions & Consulting",
+  description:
+    "Leading provider of Salesforce consulting, custom development, and enterprise software solutions. Transform your business with our expert team.",
+  keywords: "Salesforce consulting, custom development, enterprise software, business transformation, Logic Clutch",
+  authors: [{ name: "Logic Clutch" }],
   creator: "Logic Clutch",
+  publisher: "Logic Clutch",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://logicclutch.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    title: "Logic Clutch - Enterprise Software Solutions & Consulting",
+    description:
+      "Leading provider of Salesforce consulting, custom development, and enterprise software solutions. Transform your business with our expert team.",
+    url: "https://logicclutch.com",
+    siteName: "Logic Clutch",
     images: [
       {
-        url: siteConfig.ogImage,
+        url: "/images/og-image-logic-clutch.png",
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: "Logic Clutch - Enterprise Software Solutions",
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: "@logicclutch",
+    title: "Logic Clutch - Enterprise Software Solutions & Consulting",
+    description:
+      "Leading provider of Salesforce consulting, custom development, and enterprise software solutions. Transform your business with our expert team.",
+    images: ["/images/og-image-logic-clutch.png"],
   },
-  icons: {
-    icon: siteConfig.favicon,
-    shortcut: siteConfig.favicon,
-    apple: siteConfig.favicon,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
     generator: 'v0.app'
 }
 
@@ -73,22 +69,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <WhatsAppChat
-              phoneNumber="+919929790897"
-              businessName="Logic Clutch"
-              welcomeMessage="Hi! 👋 How can we help you with your technology needs today?"
-              position="bottom-right"
-            />
-          </div>
-        </ThemeProvider>
-        <GoogleAnalytics gaId="G-QYGN7G70SM" />
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <WhatsAppChat />
       </body>
     </html>
   )

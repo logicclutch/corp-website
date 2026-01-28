@@ -1,4 +1,3 @@
-
 import { NextResponse } from "next/server"
 import { sendEmail } from "@/lib/email"
 import { ContactDatabase, type ContactData } from "@/lib/database"

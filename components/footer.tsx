@@ -1,97 +1,99 @@
 import Link from "next/link"
-import Image from "next/image"
-import { footerLinks, siteConfig } from "@/lib/data"
+import { Separator } from "@/components/ui/separator"
+import Logo from "./logo"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container py-12 md:py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-          {/* Company Info */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Image
-                src="/images/logic-clutch-logo-new.png"
-                alt="Logic Clutch"
-                width={40}
-                height={40}
-                className="rounded"
-              />
-              <span className="text-xl font-bold">Logic Clutch</span>
-            </Link>
-            <p className="text-gray-300 mb-4 max-w-md">
-              Enterprise technology consulting specializing in Master Data Management, Salesforce CRM, AI analytics and
-              custom development.
+    <footer className="border-t bg-background">
+      <div className="container py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div className="space-y-4">
+            <Logo />
+            <p className="text-sm text-muted-foreground">
+              Transforming businesses through innovative software solutions and expert consulting services.
             </p>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>{siteConfig.address}</p>
-              <p>{siteConfig.phone}</p>
-              <p>{siteConfig.email}</p>
-            </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-gray-300 hover:text-white transition-colors text-sm">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold">Services</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/services/salesforce" className="text-muted-foreground hover:text-foreground">
+                  Salesforce Consulting
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/development" className="text-muted-foreground hover:text-foreground">
+                  Custom Development
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/augmentation" className="text-muted-foreground hover:text-foreground">
+                  Resource Augmentation
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/mdm" className="text-muted-foreground hover:text-foreground">
+                  Master Data Management
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-gray-300 hover:text-white transition-colors text-sm">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold">Company</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/about" className="text-muted-foreground hover:text-foreground">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/case-studies" className="text-muted-foreground hover:text-foreground">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers" className="text-muted-foreground hover:text-foreground">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-muted-foreground hover:text-foreground">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-gray-300 hover:text-white transition-colors text-sm">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold">Legal</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-of-service" className="text-muted-foreground hover:text-foreground">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookie-policy" className="text-muted-foreground hover:text-foreground">
+                  Cookie Policy
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-300 text-sm">© {new Date().getFullYear()} Logic Clutch. All rights reserved.</p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            {footerLinks.social.map((social) => {
-              const Icon = social.icon
-              return (
-                <Link
-                  key={social.label}
-                  href={social.href}
-                  className="text-gray-300 hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                >
-                  <Icon className="h-5 w-5" />
-                </Link>
-              )
-            })}
+        <Separator className="my-8" />
+
+        <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
+          <p className="text-sm text-muted-foreground">© 2024 Logic Clutch. All rights reserved.</p>
+          <div className="flex space-x-4 text-sm text-muted-foreground">
+            <span>Made with ❤️ in India</span>
           </div>
         </div>
       </div>

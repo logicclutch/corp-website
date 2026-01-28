@@ -1,4 +1,3 @@
-
 import { Rss, Edit3 } from "lucide-react"
 
 export default function BlogPage() {
