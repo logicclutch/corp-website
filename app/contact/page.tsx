@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { MapPin, Phone, Mail, Clock, CheckCircle, AlertCircle } from "lucide-react"
+import { siteConfig } from "@/lib/data"
 
 interface FormData {
   name: string
@@ -273,19 +274,17 @@ export default function ContactPage() {
                   <CardDescription>Reach out to us through any of these channels</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <MapPin className="h-6 w-6 text-orange-500 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">Address</h3>
-                      <p className="text-gray-600">
-                        91, Shri Ram Enclave, Kallawala
-                        <br />
-                        Vatika Road, Jaipur 303905
-                        <br />
-                        Rajasthan, India
-                      </p>
+                  {siteConfig.locations.map((location, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <MapPin className="h-6 w-6 text-orange-500 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="font-semibold text-gray-900">
+                          {location.city} {location.type && `(${location.type})`}
+                        </h3>
+                        <p className="text-gray-600 whitespace-pre-line">{location.address}</p>
+                      </div>
                     </div>
-                  </div>
+                  ))}
 
                   <div className="flex items-start space-x-4">
                     <Phone className="h-6 w-6 text-orange-500 mt-1 flex-shrink-0" />

@@ -32,6 +32,18 @@ export const siteConfig = {
   address: "91, Shri Ram Enclave, Kallawala, Vatika Road, Jaipur 303905",
   phone: "+91 99297 90897",
   email: "info@logicclutch.com",
+  locations: [
+    {
+      city: "Jaipur",
+      address: "91, Shri Ram Enclave, Kallawala, Vatika Road, Jaipur 303905",
+      type: "Headquarters",
+    },
+    {
+      city: "Noida",
+      address: "B1-1204A, Divyansh Flora, Sector 16C, Gaur City 2, Greater Noida, Uttar Pradesh 201009",
+      type: "Regional Office",
+    },
+  ],
 }
 
 export const navMenuItems: NavItem[] = [

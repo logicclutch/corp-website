@@ -24,7 +24,9 @@ export default function Footer() {
               custom development.
             </p>
             <div className="space-y-2 text-sm text-gray-300">
-              <p>{siteConfig.address}</p>
+              {siteConfig.locations.map((loc, idx) => (
+                <p key={idx}>{loc.city}: {loc.address}</p>
+              ))}
               <p>{siteConfig.phone}</p>
               <p>{siteConfig.email}</p>
             </div>
