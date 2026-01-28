@@ -1,4 +1,13 @@
-import nodemailer from "nodemailer"
+// lib/email.ts
+
+export async function sendEmail(_data: any) {
+  // TEMPORARILY DISABLED FOR CLOUDFLARE EDGE
+  // TODO: Replace with Edge-safe email provider (Resend / SendGrid / Worker)
+  console.log("📭 Email temporarily disabled");
+  return { success: true };
+}
+
+/*import nodemailer from "nodemailer"
 
 // Email configuration
 interface EmailConfig {
@@ -245,3 +254,4 @@ export async function testEmailSending(): Promise<{ success: boolean; result?: a
     }
   }
 }
+*/

@@ -1,8 +1,23 @@
+export const runtime = 'edge';
 
-import { NextResponse } from "next/server"
+import { sendEmail } from "@/lib/email";
+
+export async function POST(req: Request) {
+  const body = await req.json();
+
+  // Email is now a NO-OP but won't crash
+  await sendEmail(body);
+
+  return Response.json({
+    success: true,
+    message: "Contact request received",
+  });
+}
+
+/* import { NextResponse } from "next/server"
 import { ContactDatabase } from "@/lib/database"
 
-export const runtime = 'edge';
+
 export async function GET(request: Request) {
   try {
     // Check if database is available
@@ -30,4 +45,4 @@ export async function GET(request: Request) {
     console.error("Error in contacts API:", error)
     return NextResponse.json({ success: false, error: "Internal server error" }, { status: 500 })
   }
-}
+} */
