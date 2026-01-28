@@ -10,19 +10,19 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 268 100% 55%;
+    --primary: 12 75% 58%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 268 40% 96%;
+    --secondary: 12 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 268 40% 96%;
+    --muted: 12 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 268 40% 96%;
+    --accent: 12 40% 96%;
     --accent-foreground: 222.2 84% 4.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 268 100% 55%;
+    --ring: 12 75% 58%;
     --radius: 0.5rem;
   }
 
@@ -33,7 +33,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 268 100% 55%;
+    --primary: 12 75% 58%;
     --primary-foreground: 222.2 84% 4.9%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -45,7 +45,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 268 100% 55%;
+    --ring: 12 75% 58%;
   }
 }
 
@@ -81,11 +81,11 @@ html {
 
 /* Custom gradient backgrounds */
 .gradient-bg {
-  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #E85D3F 0%, #F07545 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #E85D3F 0%, #F07545 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -93,13 +93,13 @@ html {
 
 /* Logic Clutch brand colors */
 .logic-clutch-primary {
-  background-color: #8b5cf6;
+  background-color: #E85D3F;
 }
 
 .logic-clutch-primary-hover {
-  background-color: #7c3aed;
+  background-color: #D84E30;
 }
 
 .logic-clutch-text {
-  color: #8b5cf6;
+  color: #E85D3F;
 }
