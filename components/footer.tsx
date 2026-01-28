@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Separator } from "@/components/ui/separator"
-import Logo from "./logo"
+import Logo from "@/components/logo"
 
 export default function Footer() {
   return (
